@@ -1,7 +1,7 @@
 library(haven)
 library(reshape2)
-setwd("C:/Users/yifei.liu/Desktop/Amazon Health Wellness Segmentation/k mean")
-db <- read_spss("C:/Users/yifei.liu/Desktop/Amazon Health Wellness Segmentation/Amazon_Health U & A Survey-Data File Jan 18 (With IDs).sav")
+setwd("C:/Users/yifei.liu/Desktop/k mean")
+db <- read_spss("C:/Users/yifei.liu/Desktop/k_mean_data.sav")
 
 # yes - no question
 general.health <- c("GH1", "GH2", "GH4_1","GH4_2","GH4_3","GH4_4", "GH5", "GH6","GH7")
@@ -56,5 +56,5 @@ km <- kmeans(mdb, 8, nstart = 20, iter.max = 30)
 seg8<- km$cluster
 
 result <- cbind(db[,1], seg3, seg4, seg5, seg6, seg7, seg8)
-write.csv(result, "k means 3 to 8 segment solution Feb 7 Yifei.csv", row.names = FALSE)
+write.csv(result, "k means 3 to 8 segment solution.csv", row.names = FALSE)
 
